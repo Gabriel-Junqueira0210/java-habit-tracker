@@ -1,17 +1,15 @@
-package menu;
-import repository.HabitRepository;
-import service.HabitService;
-
+package com.gabriel.habittracker.menu;
+import com.gabriel.habittracker.service.HabitService;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
-    private HabitService service = new HabitService();
+    private final HabitService service;
     private final Scanner scanner;
 
-    public Menu() {
+    public Menu(HabitService service, Scanner scanner) {
         this.service = service;
-        this.scanner = new Scanner(System.in);
+        this.scanner = scanner;
     }
 
     public void showMenu() {

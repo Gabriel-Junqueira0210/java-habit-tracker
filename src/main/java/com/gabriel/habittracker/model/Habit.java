@@ -1,4 +1,4 @@
-package model;
+package com.gabriel.habittracker.model;
 
 public class Habit {
     //Atributes

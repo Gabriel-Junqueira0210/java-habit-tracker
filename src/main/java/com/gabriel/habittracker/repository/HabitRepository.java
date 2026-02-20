@@ -1,5 +1,5 @@
-package repository;
-import model.Habit;
+package com.gabriel.habittracker.repository;
+import com.gabriel.habittracker.model.Habit;
 
 import java.util.ArrayList;
 import java.util.List;
