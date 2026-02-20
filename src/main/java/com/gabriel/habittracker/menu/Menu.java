@@ -27,11 +27,46 @@ public class Menu {
         System.out.println(menu);
     }
 
-    public void start() {
-        while (true) {
-            showMenu();
-            int option = readOption();
+    public boolean handleOption(int option){
+        switch (option) {
+            case 1:
+                System.out.println("Opção 1");
+                return true;
+            case 2:
+                System.out.println("Opção 2");
+                return true;
+            case 3:
+                System.out.println("Opção 3");
+                return true;
+            case 4:
+                System.out.println("Opção 4");
+                return true;
+            case 5:
+                System.out.println("Opção 5");
+                return true;
+            case 0:
+                return false;
+            default:
+                System.out.println("Opção iválida!");
+                return true;
         }
+    }
+
+    public void start() {
+        boolean running = true;
+
+        while (running) {
+            showMenu();
+
+            try {
+                int option = readOption();
+                running = handleOption(option);
+            }catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }
+        }
+
+        System.out.println("Encerrando sistema...");
     }
 
     public int readOption() {
@@ -42,7 +77,7 @@ public class Menu {
             return option;
         } catch (InputMismatchException e) {
             scanner.nextLine();
-            throw new IllegalArgumentException("Entrada inválida! Digite apenas números.");
+            throw new IllegalArgumentException("Entrada inválida! Digite apenas números.\n");
         }
     }
 }
