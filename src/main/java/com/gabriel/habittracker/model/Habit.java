@@ -2,13 +2,14 @@ package com.gabriel.habittracker.model;
 
 public class Habit {
     //Atributes
-    private int id;
+    private long id;
     private String name;
     private int monthlyGoal;
     private int completedCount;
 
     //Constructor
-    public Habit (String name, int monthlyGoal) {
+    public Habit (long id, String name, int monthlyGoal) {
+        this.id = id;
         this.name = name;
         this.monthlyGoal = monthlyGoal;
         this.completedCount = 0;
@@ -16,7 +17,7 @@ public class Habit {
 
     //Methods
     //Getters
-    public int getId() {return this.id;}
+    public long getId() {return this.id;}
 
     public String getName() {return this.name;}
 
@@ -32,4 +33,18 @@ public class Habit {
     public void setMonthlyGoal(int weeklyGoal) {this.monthlyGoal = weeklyGoal;}
 
     public void setCompletedCount(int completedCount) {this.completedCount = completedCount;}
+
+    public void incrementCompletedDays() {
+        if (completedCount >= monthlyGoal){
+            throw new IllegalStateException("A meta já foi atingida.");
+        }
+        this.completedCount++;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + this.name +
+        "\nID: " + this.id +
+        "\nDias completos: " + this.completedCount + "/" + this.monthlyGoal;
+    }
 }

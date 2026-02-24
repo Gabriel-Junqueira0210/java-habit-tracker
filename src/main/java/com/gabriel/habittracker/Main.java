@@ -7,9 +7,13 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args) {
-        HabitService service = new HabitService();
         HabitRepository repository = new HabitRepository();
+        repository.loadFile();
+
+        HabitService service = new HabitService(repository);
+
         Scanner scanner = new Scanner(System.in);
+
         Menu menu = new Menu(service, scanner);
 
         menu.start();
