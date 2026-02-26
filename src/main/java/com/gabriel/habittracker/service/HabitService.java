@@ -24,7 +24,7 @@ public class HabitService {
     }
 
     private void validateHabit(String name, int montlhyGoal) {
-        if (name == null || name.isBlank()){
+        if (name == null || name.trim().isEmpty()){
             throw new IllegalArgumentException("Nome inválido.");
         }
         if (montlhyGoal <= 0) {

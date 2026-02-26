@@ -5,10 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HabitRepository {
-    private final List<Habit> habitList = new ArrayList<>();
+    private List<Habit> habitList;
 
-    public void loadFile(){
-
+    public void loadFile() {
     }
 
     public void addHabit(Habit habit){

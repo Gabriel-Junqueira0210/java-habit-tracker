@@ -15,6 +15,14 @@ public class Habit {
         this.completedCount = 0;
     }
 
+    //Constructor to load from file
+    public Habit(long id, String name, int monthlyGoal, int completedCount) {
+        this.id = id;
+        this.name = name;
+        this.monthlyGoal = monthlyGoal;
+        this.completedCount = completedCount;
+    }
+
     //Methods
     //Getters
     public long getId() {return this.id;}
@@ -46,5 +54,9 @@ public class Habit {
         return "Nome: " + this.name +
         "\nID: " + this.id +
         "\nDias completos: " + this.completedCount + "/" + this.monthlyGoal;
+    }
+
+    public String toFileFormat() {
+        return this.id + ";" + this.name + ";" + this.monthlyGoal + ";" + this.completedCount;
     }
 }
