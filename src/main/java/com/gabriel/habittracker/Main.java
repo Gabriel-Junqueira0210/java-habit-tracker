@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args) {
         HabitRepository repository = new HabitRepository();
-        repository.loadFile();
 
         HabitService service = new HabitService(repository);
 

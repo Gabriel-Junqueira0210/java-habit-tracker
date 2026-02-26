@@ -88,7 +88,7 @@ public class Menu {
 
     private void showHabit(long id) {
         Habit habit = service.findHabit(id);
-        System.out.println(habit);
+        System.out.println(habit + "\n");
     }
 
     public boolean handleOption(int option){
@@ -164,7 +164,8 @@ public class Menu {
             }
         }
 
-        System.out.println("Encerrando sistema...\n");
+        System.out.println("Salvando seus dados e encerrando sistema...\n");
+        service.saveFile();
     }
 
     public int readOption() {
