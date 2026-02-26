@@ -1,0 +1,4 @@
+1;Academia;20;7
+2;Leitura;30;3
+3;Gabriel;5;5
+4;Corrida;30;0

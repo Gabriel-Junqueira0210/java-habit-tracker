@@ -9,8 +9,8 @@ public class HabitRepository {
     private List<Habit> habitList;
     private final HabitFileManager fileManager;
 
-    public HabitRepository () {
-        this.fileManager = new HabitFileManager();
+    public HabitRepository (HabitFileManager fileManager) {
+        this.fileManager = fileManager;
 
         this.habitList = new ArrayList<>();
         loadFile();
