@@ -44,7 +44,7 @@ public class Habit {
 
     public void incrementCompletedDays() {
         if (completedCount >= monthlyGoal){
-            throw new IllegalStateException("A meta já foi atingida.");
+            throw new IllegalStateException("A meta já foi atingida.\n");
         }
         this.completedCount++;
     }
@@ -56,7 +56,4 @@ public class Habit {
         "\nDias completos: " + this.completedCount + "/" + this.monthlyGoal;
     }
 
-    public String toFileFormat() {
-        return this.id + ";" + this.name + ";" + this.monthlyGoal + ";" + this.completedCount;
-    }
 }

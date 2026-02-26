@@ -25,10 +25,10 @@ public class HabitService {
 
     private void validateHabit(String name, int montlhyGoal) {
         if (name == null || name.trim().isEmpty()){
-            throw new IllegalArgumentException("Nome inválido.\n");
+            throw new IllegalArgumentException("Nome inválido.");
         }
         if (montlhyGoal <= 0) {
-            throw new IllegalArgumentException("Meta deve ser maior que zero.\n");
+            throw new IllegalArgumentException("Meta deve ser maior que zero.");
         }
     }
 
@@ -36,7 +36,7 @@ public class HabitService {
         Habit habit = repository.findById(id);
 
         if (habit == null) {
-            throw new IllegalArgumentException("Hábito não encontrado.\n");
+            throw new IllegalArgumentException("Hábito não encontrado.");
         }
 
         return habit;
@@ -53,7 +53,7 @@ public class HabitService {
         List<Habit> habits = repository.findAll();
 
         if (habits.isEmpty()){
-            throw new IllegalArgumentException("A lista está vazia.\n");
+            throw new IllegalArgumentException("A lista está vazia.");
         }
 
         return habits;

@@ -13,11 +13,15 @@ import java.util.Scanner;
 public class HabitFileManager {
     private static final String FILE_PATH = "Habits.txt";
 
+    private String toFileFormat(Habit habit) {
+        return habit.getId() + ";" + habit.getName() + ";" + habit.getMonthlyGoal() + ";" + habit.getCompletedCount();
+    }
+
     public void saveFile (List<Habit> habits) {
         try(FileWriter writer = new FileWriter(FILE_PATH);) {
 
                 for(Habit habit : habits) {
-                    writer.write(habit.toFileFormat());
+                    writer.write(toFileFormat(habit));
                     writer.write(System.lineSeparator());
                 }
         } catch (IOException e) {
