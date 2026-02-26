@@ -33,18 +33,25 @@ public class Menu {
         List<Habit> habits = service.listHabits();
 
         if(habits.isEmpty()) {
-            System.out.println("Nenhum hábito foi cadastrado.");
+            System.out.println("Nenhum hábito foi cadastrado.\n");
             return;
         }
 
         for(Habit habit : habits){
-            System.out.println(habit);
+            System.out.println(habit + "\n");
         }
     }
 
     private String readName() {
-        System.out.println("Insira o nome do hábito: ");
-        return scanner.nextLine();
+        while (true) {
+            System.out.println("Insira o nome do hábito: ");
+            String name = scanner.nextLine().trim();
+
+            if (name.isEmpty()){
+                System.out.println("Entrada inválida, o nome não pode estar vazio.\n");
+            }else
+                return name;
+        }
     }
 
     private int readMontlhyGoal() {
@@ -53,9 +60,15 @@ public class Menu {
             String input = scanner.nextLine().trim();
 
             try {
-                return Integer.parseInt(input);
+                int value = Integer.parseInt(input);
+
+                if(value <= 0) {
+                    System.out.println("A meta mensal deve ser maior do que 0.\n");
+                    continue;
+                }
+                return value;
             } catch (NumberFormatException e) {
-                System.out.println("Entrada inválida, Digite apenas números.");
+                System.out.println("Entrada inválida, Digite apenas números.\n");
             }
         }
     }
@@ -68,7 +81,7 @@ public class Menu {
             try {
                 return Long.parseLong(input);
             } catch (NumberFormatException e) {
-                System.out.println("Entrada inválida, Digite apenas números.");
+                System.out.println("Entrada inválida, Digite apenas números.\n");
             }
         }
     }
@@ -87,7 +100,7 @@ public class Menu {
 
                     service.createHabit(name, goal);
 
-                    System.out.println("Hábito criado com sucesso!");
+                    System.out.println("Hábito criado com sucesso!\n");
 
                 }catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
@@ -100,7 +113,7 @@ public class Menu {
 
                     service.incrementProgress(id);
 
-                    System.out.println("Número de dias concluídos atualizado com sucesso!");
+                    System.out.println("Número de dias concluídos atualizado com sucesso!\n");
 
                 }catch (IllegalStateException e) {
                     System.out.println(e.getMessage());
@@ -122,7 +135,7 @@ public class Menu {
 
                     service.removeHabit(id);
 
-                    System.out.println("Hábito removido com sucesso!");
+                    System.out.println("Hábito removido com sucesso!\n");
                 }catch (IllegalArgumentException e){
                     System.out.println(e.getMessage());
                 }
@@ -132,7 +145,7 @@ public class Menu {
                 return false;
             }
             default:
-                System.out.println("Opção iválida!");
+                System.out.println("Opção iválida!\n");
                 return true;
         }
     }
@@ -151,11 +164,11 @@ public class Menu {
             }
         }
 
-        System.out.println("Encerrando sistema...");
+        System.out.println("Encerrando sistema...\n");
     }
 
     public int readOption() {
-    System.out.println("Escolha uma opção: ");
+    System.out.println("Escolha uma opção: \n");
         try {
             int option = scanner.nextInt();
             scanner.nextLine();
