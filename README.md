@@ -21,3 +21,18 @@ src/main/java/com/gabriel/habittracker/
  ├── repository/   # Gerenciamento da coleção de dados (HabitRepository.java)
  ├── service/      # Regras de negócio e lógica da aplicação (HabitService.java)
  └── Main.java     # Ponto de entrada e Injeção de Dependência manual
+```
+
+## Destaques Técnicos
+* **Single Responsibility Principle (SRP):** Aplicação do princípio de responsabilidade única, onde a lógica de negócio (Service) é totalmente isolada da formatação de saída (UI) e do armazenamento físico (Persistence).
+
+* **Injeção de Dependência:** As dependências são instanciadas e injetadas via classe Main. Essa abordagem facilita a manutenção e permite que componentes sejam substituídos ou testados isoladamente com maior facilidade.
+
+* **Persistência Robusta:** O sistema foi projetado para lidar com inconsistências no arquivo local, garantindo que o software continue operando mesmo diante de linhas malformadas ou arquivos vazios.
+
+## Próximos Passos (v2.0)
+* Migração da persistência de arquivos .txt para um Banco de Dados Relacional.
+
+* Implementação de Interface Gráfica (GUI).
+
+* Adição de métricas de progresso e estatísticas de consistência dos hábitos.
