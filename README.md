@@ -1,4 +1,4 @@
-# Habit Tracker CLI 🚀
+# Habit Tracker
 
 Projeto desenvolvido para consolidar conceitos de **Engenharia de Software**, **Arquitetura em Camadas** e **Programação Orientada a Objetos (POO)** em Java.
 
